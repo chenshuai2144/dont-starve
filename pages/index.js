@@ -137,7 +137,15 @@ const columns = [
       text: recipe,
       value: recipe
     })),
-    onFilter: (value, record) => record.recipe[value] !== undefined
+    onFilter: (value, record) => {
+      let isHave = false;
+      record.thing.map(thing => {
+        if (!isHave) {
+          isHave = thing[value] !== undefined;
+        }
+      });
+      return isHave;
+    }
   },
   {
     title: "炊具",
@@ -147,7 +155,7 @@ const columns = [
       text: cooker,
       value: cooker
     })),
-    onFilter: (value, record) => record.cookers.indexOf(value) !== -1
+    onFilter: (value, record) => record.cooking.indexOf(value) !== -1
   }
 ];
 
