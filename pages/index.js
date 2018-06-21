@@ -139,7 +139,7 @@ const columns = [
     })),
     onFilter: (value, record) => {
       let isHave = false;
-      record.thing.map(thing => {
+      record.thing.forEach(thing => {
         if (!isHave) {
           isHave = thing[value] !== undefined;
         }
