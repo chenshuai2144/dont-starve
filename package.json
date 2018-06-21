@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "umi dev",
     "build": "umi build",
-    "deploy": "umi build && gh-pages -d dist"
+    "deploy": "umi build && firebase deploy"
   },
   "dependencies": {
     "antd": "^3.6.3",
