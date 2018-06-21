@@ -37,7 +37,7 @@ const foodList = foods.map(item => ({
   cookers: item.cooking
 }));
 
-const VAL_COLOR = ["#f5222d", "#ad4e00", "#1890ff", "#391085", "#030852"];
+const VAL_COLOR = ["#993399", "#e2434b", "#65c0ba", "#ffb400", "#030852"];
 const VAL_NAMES = ["彩", "红", "银", "铜"];
 const VAL_MONEY = [1000000, 10000, 100, 1];
 
