@@ -1,0 +1,554 @@
+﻿[
+  {
+    "name": "条状面包",
+    "money": "5铜",
+    "dish": "1银2铜",
+    "type": "Snack,Bread",
+    "cooking": "oven",
+    "thing": "面粉*3"
+  },
+  {
+    "name": "薯片",
+    "money": "6铜",
+    "dish": "1银2铜",
+    "type": "Snack,Veggie",
+    "cooking": "oven",
+    "thing": "土豆*3"
+  },
+  {
+    "name": "蔬菜汤",
+    "money": "8铜",
+    "dish": "1银4铜",
+    "type": "Snack,Soup,Veggie",
+    "cooking": "Cookpot",
+    "thing": "蔬菜*3"
+  },
+  {
+    "name": "果冻三明治",
+    "money": "8铜",
+    "dish": "1银4铜",
+    "type": "Snack,Bread",
+    "cooking": "Grill",
+    "thing": "浆果*2 面粉*1"
+  },
+  {
+    "name": "炖鱼",
+    "money": "8铜",
+    "dish": "1银4铜",
+    "type": "Soup,Fish",
+    "cooking": "Cookpot",
+    "thing": "鱼*1+蔬菜*2/鱼*3"
+  },
+  {
+    "name": "萝卜蛋糕",
+    "money": "8铜",
+    "dish": "1银4铜",
+    "type": "Snack,Veggie",
+    "cooking": "oven",
+    "thing": "萝卜*3"
+  },
+  {
+    "name": "土豆煎饼",
+    "money": "8铜",
+    "dish": "1银4铜",
+    "type": "Snack,Veggie",
+    "cooking": "Grill",
+    "thing": "土豆*3"
+  },
+  {
+    "name": "土豆汤",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Snack,Soup,Veggie",
+    "cooking": "Cookpot",
+    "thing": "土豆*3"
+  },
+  {
+    "name": "鱼肉串",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Snack,Fish",
+    "cooking": "Grill",
+    "thing": "鱼*2+树枝+鱼/鱼+蔬菜+树枝"
+  },
+  {
+    "name": "肉丸",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Snack,Meat",
+    "cooking": "Cookpot",
+    "thing": "肉+蔬菜*2"
+  },
+  {
+    "name": "肉串",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Snack,Meat",
+    "cooking": "Grill",
+    "thing": "肉*2+蔬菜"
+  },
+  {
+    "name": "石头汤",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Snack,Soup",
+    "cooking": "Cookpot",
+    "thing": "石头+蕨类+浆果"
+  },
+  {
+    "name": "炸素丸子",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Snack,Veggie",
+    "cooking": "Oven",
+    "thing": "面粉+土豆*2"
+  },
+  {
+    "name": "烤蔬菜",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Veggie",
+    "cooking": "Oven,Grill",
+    "thing": "蔬菜*3"
+  },
+  {
+    "name": "肉饼",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Meat",
+    "cooking": "Oven",
+    "thing": "肉+蔬菜*2"
+  },
+  {
+    "name": "胡萝卜汤",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Snack,Soup,Veggie",
+    "cooking": "Cookpot",
+    "thing": "萝卜*3"
+  },
+  {
+    "name": "鲜鱼派",
+    "money": "10铜",
+    "dish": "1银7铜",
+    "type": "Fish",
+    "cooking": "oven",
+    "thing": "面粉+鱼+蔬菜"
+  },
+  {
+    "name": "炸鱼薯条",
+    "money": "12铜",
+    "dish": "2银3铜",
+    "type": "Fish",
+    "cooking": "oven",
+    "thing": "面粉+鱼+土豆"
+  },
+  {
+    "name": "肉派",
+    "money": "12铜",
+    "dish": "2银3铜",
+    "type": "Meat",
+    "cooking": "oven",
+    "thing": "面粉+肉+蔬菜"
+  },
+  {
+    "name": "小汉堡",
+    "money": "12铜",
+    "dish": "2银3铜",
+    "type": "Snack,Bread,Meat",
+    "cooking": "Grill",
+    "thing": "面粉+肉+蕨类"
+  },
+  {
+    "name": "满满的果酱",
+    "money": "1银",
+    "dish": "1银2铜",
+    "type": "Snack,Dessert",
+    "cooking": "Cookpot",
+    "thing": "浆果*3"
+  },
+  {
+    "name": "果冻卷",
+    "money": "1银2铜",
+    "dish": "1银4铜",
+    "type": "Dessert",
+    "cooking": "oven",
+    "thing": "浆果*2 面粉*1"
+  },
+  {
+    "name": "胡萝卜蛋糕",
+    "money": "1银6铜",
+    "dish": "2银3铜",
+    "type": "Dessert",
+    "cooking": "oven",
+    "thing": "红萝卜+面粉*2"
+  },
+  {
+    "name": "蒜香土豆泥",
+    "money": "1银6铜",
+    "dish": "1红3铜",
+    "type": "Snack,Veggie",
+    "cooking": "Cookpot",
+    "thing": "土豆*2+蒜"
+  },
+  {
+    "name": "蒜香面包",
+    "money": "1银6铜",
+    "dish": "1红3铜",
+    "type": "Snack,Bread",
+    "cooking": "oven",
+    "thing": "面粉*2+蒜"
+  },
+  {
+    "name": "番茄汤",
+    "money": "1银8铜",
+    "dish": "1红6铜",
+    "type": "Snack,Soup,Veggie",
+    "cooking": "Cookpot",
+    "thing": "番茄*3"
+  },
+  {
+    "name": "肉肠",
+    "money": "1银8铜",
+    "dish": "1红2铜",
+    "type": "Snack,Meat",
+    "cooking": "Grill",
+    "thing": "肉 *2+香料*1"
+  },
+  {
+    "name": "糖煮鱼",
+    "money": "2银4铜",
+    "dish": "1红1银2铜",
+    "type": "Snack,Fish",
+    "cooking": "oven",
+    "thing": "鱼*2+糖浆*1"
+  },
+  {
+    "name": "蘑菇馅饼",
+    "money": "2银4铜",
+    "dish": "1红1银2铜",
+    "type": "Snack,Veggie",
+    "cooking": "oven",
+    "thing": "蒜+蘑菇+洋葱"
+  },
+  {
+    "name": "蔬菜杂烩",
+    "money": "2银4铜",
+    "dish": "1红1银2铜",
+    "type": "Veggie",
+    "cooking": "Oven",
+    "thing": "土豆+番茄+萝卜+红萝卜"
+  },
+  {
+    "name": "意大利面包片",
+    "money": "2银6铜",
+    "dish": "1红1银5铜",
+    "type": "Snack,Bread,Veggie",
+    "cooking": "Grill",
+    "thing": "面粉+蕨类+番茄*2"
+  },
+  {
+    "name": "肉汤",
+    "money": "2银6铜",
+    "dish": "1红1银5铜",
+    "type": "soup,Meat",
+    "cooking": "Cookpot",
+    "thing": "肉*2土豆*2"
+  },
+  {
+    "name": "汉堡",
+    "money": "2银6铜",
+    "dish": "1红1银5铜",
+    "type": "Bread,Meet",
+    "cooking": "Grill",
+    "thing": "面粉*2+肉*2"
+  },
+  {
+    "name": "鱼汉堡",
+    "money": "2银6铜",
+    "dish": "2银6铜",
+    "type": "Bread,Fish",
+    "cooking": "Grill",
+    "thing": "面粉*2+鱼"
+  },
+  {
+    "name": "蘑菇汉堡",
+    "money": "2银6铜",
+    "dish": "2银6铜",
+    "type": "Bread,Veggie",
+    "cooking": "Grill",
+    "thing": "面粉*2+蘑菇*2"
+  },
+  {
+    "name": "鱼排",
+    "money": "2银8铜",
+    "dish": "1红1银7铜",
+    "type": "FIsh",
+    "cooking": "Grill",
+    "thing": "蕨类+鱼+香料+蔬菜"
+  },
+  {
+    "name": "咖喱",
+    "money": "2银8铜",
+    "dish": "1红1银7铜",
+    "type": "soup,Meat",
+    "cooking": "cookpot",
+    "thing": "蒜+肉+香料*2"
+  },
+  {
+    "name": "肉丸意大利面",
+    "money": "2银8铜",
+    "dish": "1红1银7铜",
+    "type": "Pasta,Meat",
+    "cooking": "cookpot",
+    "thing": "面粉+蘑菇(蒜)+肉+番茄"
+  },
+  {
+    "name": "千层面",
+    "money": "2银8铜",
+    "dish": "1红1银7铜",
+    "type": "pasta,Meat",
+    "cooking": "oven",
+    "thing": "面粉+蘑菇(蒜)+肉+番茄"
+  },
+  {
+    "name": "水煮鱼",
+    "money": "2银8铜",
+    "dish": "1红1银7铜",
+    "type": "Fish",
+    "cooking": "cookpot",
+    "thing": "红萝卜+蕨类+鱼+香料"
+  },
+  {
+    "name": "牧羊人的陷阱",
+    "money": "2银8铜",
+    "dish": "1红1银7铜",
+    "type": "Meat",
+    "cooking": "oven",
+    "thing": "红萝卜+肉+土豆+香料"
+  },
+  {
+    "name": "拐杖糖",
+    "money": "1红2铜",
+    "dish": "1红6铜",
+    "type": "Dessert",
+    "cooking": "cookpot",
+    "thing": "糖浆*3"
+  },
+  {
+    "name": "布丁",
+    "money": "1红4铜",
+    "dish": "1红1银2铜",
+    "type": "Dessert",
+    "cooking": "oven",
+    "thing": "面粉*2+糖浆"
+  },
+  {
+    "name": "华夫饼",
+    "money": "1红4铜",
+    "dish": "1红1银2铜",
+    "type": "dessert",
+    "cooking": "Grill",
+    "thing": "面粉*2+糖浆"
+  },
+  {
+    "name": "浆果馅饼",
+    "money": "1红6铜",
+    "dish": "1彩虹7铜",
+    "type": "dessert",
+    "cooking": "oven",
+    "thing": "浆果+面粉+糖浆"
+  },
+  {
+    "name": "芝士通心粉",
+    "money": "1红8铜",
+    "dish": "1彩虹7铜",
+    "type": "Pasta,Cheese",
+    "cooking": "cookpot",
+    "thing": "羊奶+面粉*2/面粉*1+羊奶*2"
+  },
+  {
+    "name": "硬面包圈加鱼",
+    "money": "1红8铜",
+    "dish": "1彩虹7铜",
+    "type": "Snack,Bread,Fish",
+    "cooking": "Grill",
+    "thing": "面粉+鱼+香料（洋葱）+羊奶"
+  },
+  {
+    "name": "烤奶酪",
+    "money": "1红8铜",
+    "dish": "1彩虹7铜",
+    "type": "Snack,Bread,Cheese",
+    "cooking": "Grill",
+    "thing": "面粉+羊奶*2/面粉*2+羊奶"
+  },
+  {
+    "name": "奶油蘑菇汤",
+    "money": "1红8铜",
+    "dish": "1彩虹7铜",
+    "type": "Snack,Cheese,Soup,Veggle",
+    "cooking": "cookpot",
+    "thing": "羊奶+蘑菇*2/羊奶*2+蘑菇"
+  },
+  {
+    "name": "饺子形馅饼",
+    "money": "1红1银4铜",
+    "dish": "1彩虹1银4铜",
+    "type": "Cheese",
+    "cooking": "cookpot",
+    "thing": "面粉+羊奶+土豆"
+  },
+  {
+    "name": "番茄通心粉",
+    "money": "1红1银6铜",
+    "dish": "1彩虹1银1铜",
+    "type": "Pasta,Cheese",
+    "cooking": "oven",
+    "thing": "面粉+蒜（蕨类）+羊奶+番茄"
+  },
+  {
+    "name": "芝士汉堡",
+    "money": "1红1银6铜",
+    "dish": "1彩虹1银6旧",
+    "type": "Bread,Cheese,Meat",
+    "cooking": "Grill",
+    "thing": "面粉+蕨类+肉+羊奶"
+  },
+  {
+    "name": "奶油意大利面",
+    "money": "1红1银8铜",
+    "dish": "1彩虹1红3铜",
+    "type": "Pasta",
+    "cooking": "cookpot",
+    "thing": "面粉+蒜+羊奶*2"
+  },
+  {
+    "name": "洋葱汤",
+    "money": "1红1银8铜",
+    "dish": "1彩虹1红3铜",
+    "type": "Snack,Soup,Veggie",
+    "cooking": "cookpot",
+    "thing": "面粉+洋葱*2+羊奶"
+  },
+  {
+    "name": "面包屑扎肉排",
+    "money": "1红1银8铜",
+    "dish": "1彩虹1红3铜",
+    "type": "Meat",
+    "cooking": "oven",
+    "thing": "面粉*2+大肉+香料"
+  },
+  {
+    "name": "奶油烤鱼",
+    "money": "1红1银8铜",
+    "dish": "1彩虹1红3铜",
+    "type": "Fish",
+    "cooking": "oven",
+    "thing": "鱼+蒜+羊奶+香料"
+  },
+  {
+    "name": "披萨",
+    "money": "2红4铜",
+    "dish": "1彩虹1红5铜",
+    "type": "Cheese,Meat",
+    "cooking": "oven",
+    "thing": "面粉+羊奶+肉+番茄"
+  },
+  {
+    "name": "炖肉",
+    "money": "2红4铜",
+    "dish": "1彩虹1红5铜",
+    "type": "Meat",
+    "cooking": "oven",
+    "thing": "大肉+蘑菇+番茄+香料"
+  },
+  {
+    "name": "蟹肉蛋糕",
+    "money": "2红4铜",
+    "dish": "1彩虹1红5铜",
+    "type": "Snack",
+    "cooking": "oven",
+    "thing": "蟹肉+面粉+土豆+香料"
+  },
+  {
+    "name": "牛排薯条",
+    "money": "2红6铜",
+    "dish": "1彩虹1红1银2铜",
+    "type": "Meat",
+    "cooking": "Grill",
+    "thing": "大肉*2+土豆*2"
+  },
+  {
+    "name": "射击三明治",
+    "money": "2红6铜",
+    "dish": "1彩虹1红1银2铜",
+    "type": "Bread,Meat",
+    "cooking": "Grill",
+    "thing": "面粉*1+大肉*2+蒜（蘑菇，香料）"
+  },
+  {
+    "name": "培根肉",
+    "money": "2红8铜",
+    "dish": "1彩虹1红1银4铜",
+    "type": "Meat",
+    "cooking": "oven",
+    "thing": "大肉*2+肉*2"
+  },
+  {
+    "name": "蟹肉卷",
+    "money": "2红1银4铜",
+    "dish": "1彩虹1红1银7铜",
+    "type": "Bread",
+    "cooking": "Grill",
+    "thing": "蟹肉+面粉+蕨类+洋葱"
+  },
+  {
+    "name": "肉排",
+    "money": "2红1银4铜",
+    "dish": "1彩虹1红1银7铜",
+    "type": "Meat",
+    "cooking": "oven",
+    "thing": "大肉*2+面粉+香料"
+  },
+  {
+    "name": "蟹肉云吞",
+    "money": "2红1银6铜",
+    "dish": "1彩虹2红3铜",
+    "type": "Pasta,Cheese",
+    "cooking": "cookpot",
+    "thing": "蟹肉+面粉+羊奶+蘑菇（蒜，香料）"
+  },
+  {
+    "name": "方形糖",
+    "money": "1彩虹2铜",
+    "dish": "1彩虹7铜",
+    "type": "dessert",
+    "cooking": "cookpot",
+    "thing": "羊奶*2+糖浆/羊奶+糖浆*2"
+  },
+  {
+    "name": "司康",
+    "money": "1彩虹4铜",
+    "dish": "1彩虹1银4铜",
+    "type": "dessert",
+    "cooking": "Grill",
+    "thing": "浆果+面粉*2+羊奶"
+  },
+  {
+    "name": "松糕",
+    "money": "1彩虹6铜",
+    "dish": "1彩虹1银6铜",
+    "type": "dessert",
+    "cooking": "oven",
+    "thing": "浆果+面粉*2+羊奶"
+  },
+  {
+    "name": "芝士蛋糕",
+    "money": "1彩虹1银2铜",
+    "dish": "1彩虹1红3铜",
+    "type": "Cheese，Dessert",
+    "cooking": "oven",
+    "thing": "浆果+面粉+羊奶*2"
+  }
+]
