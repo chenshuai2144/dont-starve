@@ -67,7 +67,7 @@ const renderValue = value => {
     <div>
       {VAL_NAMES.map((c, index) => {
         return (
-          <Tag key={VAL_COLOR[index]} color={VAL_COLOR[index]}>
+          <Tag key={VAL_COLOR[index]} color={VAL_COLOR[index]} style={{ width: 42, textAlign: 'center' }}>
             {values[c] || 0}{c}
           </Tag>
         );
@@ -100,7 +100,8 @@ const columns = [
   {
     title: "ID",
     dataIndex: "id",
-    key: "id"
+    key: "id",
+    align: "right",
   },
   {
     title: "食物",
