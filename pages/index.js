@@ -112,7 +112,7 @@ const columns = [
     render: list => (
       <div>{list.map(value => <Tag key={value}>{value}</Tag>)}</div>
     ),
-    filters: Array.from(typeList).map(type => ({
+    filters: Array.from(typeList).sort().map(type => ({
       text: type,
       value: type
     })),
@@ -166,7 +166,7 @@ const columns = [
         </ul>
       );
     },
-    filters: Array.from(recipeList).map(recipe => ({
+    filters: Array.from(recipeList).sort().map(recipe => ({
       text: recipe,
       value: recipe
     })),

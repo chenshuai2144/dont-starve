@@ -240,7 +240,7 @@
     "dish": "1红 2铜",
     "type": "Snack,Meat",
     "cooking": "grill",
-    "thing": [{ "肉 ": 2, "香料": 1 }]
+    "thing": [{ "肉": 2, "香料": 1 }]
   },
   {
     "id": 28,
@@ -283,16 +283,16 @@
     "name": "肉汤",
     "money": "2银 6铜",
     "dish": "1红 1银 5铜",
-    "type": "soup,Meat",
+    "type": "Soup,Meat",
     "cooking": "cookpot",
-    "thing": [{ "肉": "2土豆" }]
+    "thing": [{ "肉": 2, "土豆": 2 }]
   },
   {
     "id": 33,
     "name": "汉堡",
     "money": "2银 6铜",
     "dish": "1红 1银 5铜",
-    "type": "Bread,Meet",
+    "type": "Bread,Meat",
     "cooking": "grill",
     "thing": [{ "面粉": 2, "肉": 2 }]
   },
@@ -319,7 +319,7 @@
     "name": "鱼排",
     "money": "2银 8铜",
     "dish": "1红 1银 7铜",
-    "type": "FIsh",
+    "type": "Fish",
     "cooking": "grill",
     "thing": [{ "蕨类": 1, "鱼": 1, "香料": 1, "蔬菜": 1 }]
   },
@@ -328,7 +328,7 @@
     "name": "咖喱",
     "money": "2银 8铜",
     "dish": "1红 1银 7铜",
-    "type": "soup,Meat",
+    "type": "Soup,Meat",
     "cooking": "cookpot",
     "thing": [{ "蒜": 1, "肉": 1, "香料": 2 }]
   },
@@ -339,16 +339,24 @@
     "dish": "1红 1银 7铜",
     "type": "Pasta,Meat",
     "cooking": "cookpot",
-    "thing": [{ "面粉": 1, "蘑菇(蒜)": 1, "肉": 1, "番茄": 1 }]
+    "//": { "面粉": 1, "蘑菇(蒜)": 1, "肉": 1, "番茄": 1 },
+    "thing": [
+      { "面粉": 1, "蘑菇": 1, "肉": 1, "番茄": 1 },
+      { "面粉": 1, "蒜": 1, "肉": 1, "番茄": 1 }
+    ]
   },
   {
     "id": 39,
     "name": "千层面",
     "money": "2银 8铜",
     "dish": "1红 1银 7铜",
-    "type": "pasta,Meat",
+    "type": "Pasta,Meat",
     "cooking": "oven",
-    "thing": [{ "面粉": 1, "蘑菇(蒜)": 1, "肉": 1, "番茄": 1 }]
+    "//": [{ "面粉": 1, "蘑菇(蒜)": 1, "肉": 1, "番茄": 1 }],
+    "thing": [
+      { "面粉": 1, "蘑菇": 1, "肉": 1, "番茄": 1 },
+      { "面粉": 1, "蒜": 1, "肉": 1, "番茄": 1 }
+    ]
   },
   {
     "id": 40,
@@ -391,7 +399,7 @@
     "name": "华夫饼",
     "money": "1红 4铜",
     "dish": "1红 1银 2铜",
-    "type": "dessert",
+    "type": "Dessert",
     "cooking": "grill",
     "thing": [{ "面粉": 2, "糖浆": 1 }]
   },
@@ -400,7 +408,7 @@
     "name": "浆果馅饼",
     "money": "1红 6铜",
     "dish": "1彩 7铜",
-    "type": "dessert",
+    "type": "Dessert",
     "cooking": "oven",
     "thing": [{ "浆果": 1, "面粉": 1, "糖浆": 1 }]
   },
@@ -436,7 +444,7 @@
     "name": "奶油蘑菇汤",
     "money": "1红 8铜",
     "dish": "1彩 7铜",
-    "type": "Snack,Cheese,Soup,Veggle",
+    "type": "Snack,Cheese,Soup,Veggie",
     "cooking": "cookpot",
     "thing": [{ "羊奶": 1, "蘑菇": 2 }, { "羊奶": 2, "蘑菇": 1 }]
   },
@@ -589,7 +597,7 @@
     "name": "方形糖",
     "money": "1彩 2铜",
     "dish": "1彩 7铜",
-    "type": "dessert",
+    "type": "Dessert",
     "cooking": "cookpot",
     "thing": [{ "羊奶": 2, "糖浆": 1 }, { "羊奶": 1, "糖浆": 2 }]
   },
@@ -598,7 +606,7 @@
     "name": "司康",
     "money": "1彩 4铜",
     "dish": "1彩 1银 4铜",
-    "type": "dessert",
+    "type": "Dessert",
     "cooking": "grill",
     "thing": [{ "浆果": 1, "面粉": 2, "羊奶": 1 }]
   },
@@ -607,7 +615,7 @@
     "name": "松糕",
     "money": "1彩 6铜",
     "dish": "1彩 1银 6铜",
-    "type": "dessert",
+    "type": "Dessert",
     "cooking": "oven",
     "thing": [{ "浆果": 1, "面粉": 2, "羊奶": 1 }]
   },
