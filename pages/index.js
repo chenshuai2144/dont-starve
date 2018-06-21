@@ -38,23 +38,23 @@ const foodList = foods.map(item => ({
 }));
 
 const VAL_COLOR = ["#f5222d", "#ad4e00", "#1890ff", "#391085", "#030852"];
-const VAL_NAMES = ['彩', '红', '银', '铜'];
+const VAL_NAMES = ["彩", "红", "银", "铜"];
 const VAL_MONEY = [1000000, 10000, 100, 1];
 
-const valueToMap = (value) => {
+const valueToMap = value => {
   const values = {};
   if (!value) return values;
 
   value.split(" ").forEach(val => {
     const match = val.match(/^(\d+)(.)$/);
     if (!match) {
-      console.warn('价值数据不匹配:', value, '-', val);
+      console.warn("价值数据不匹配:", value, "-", val);
       return;
     }
 
     values[match[2]] = Number(match[1]);
     if (!VAL_NAMES.includes(match[2])) {
-      console.warn('价值类型不匹配:', value, '-', val);
+      console.warn("价值类型不匹配:", value, "-", val);
     }
   });
 
@@ -72,7 +72,8 @@ const renderValue = value => {
             color={VAL_COLOR[index]}
             style={{ width: 42, textAlign: 'center', opacity: !values[c] ? 0.2 : 1 }}
           >
-            {values[c] || 0}{c}
+            {values[c] || 0}
+            {c}
           </Tag>
         );
       })}
@@ -80,10 +81,10 @@ const renderValue = value => {
   );
 };
 
-const toMoney = (value) => {
+const toMoney = value => {
   const values = valueToMap(value);
   let total = 0;
-  Object.keys(values).forEach((key) => {
+  Object.keys(values).forEach(key => {
     const index = VAL_NAMES.indexOf(key);
     const count = values[key];
     total += VAL_MONEY[index] * count;
@@ -105,7 +106,7 @@ const columns = [
     title: "ID",
     dataIndex: "id",
     key: "id",
-    align: "right",
+    align: "right"
   },
   {
     title: "食物",
@@ -119,10 +120,12 @@ const columns = [
     render: list => (
       <div>{list.map(value => <Tag key={value}>{value}</Tag>)}</div>
     ),
-    filters: Array.from(typeList).sort().map(type => ({
-      text: type,
-      value: type
-    })),
+    filters: Array.from(typeList)
+      .sort()
+      .map(type => ({
+        text: type,
+        value: type
+      })),
     onFilter: (value, record) => record.type.includes(value)
   },
   {
@@ -185,10 +188,12 @@ const columns = [
         </ul>
       );
     },
-    filters: Array.from(recipeList).sort().map(recipe => ({
-      text: recipe,
-      value: recipe
-    })),
+    filters: Array.from(recipeList)
+      .sort()
+      .map(recipe => ({
+        text: recipe,
+        value: recipe
+      })),
     onFilter: (value, record) => {
       let isHave = false;
       record.thing.forEach(thing => {
@@ -204,13 +209,7 @@ const columns = [
     dataIndex: "cooking",
     key: "cooking",
     render(cooker) {
-      return (
-        <div>
-          {toArr(cooker).map(c => (
-            <Tag key={c}>{c}</Tag>
-          ))}
-        </div>
-      );
+      return <div>{toArr(cooker).map(c => <Tag key={c}>{c}</Tag>)}</div>;
     },
     filters: Array.from(cookerList).map(cooker => ({
       text: cooker,
@@ -225,17 +224,62 @@ class Index extends React.PureComponent {
     return (
       <div
         style={{
-          padding: 24
+          height: "100%",
+          width: "100%",
+          paddingTop: "60px"
         }}
       >
-        <Table
-          size="small"
-          rowKey="id"
-          bordered={true}
-          pagination={false}
-          dataSource={foodList}
-          columns={columns}
-        />
+        <div
+          style={{
+            height: 56,
+            background: "#000",
+            padding: 8,
+            position: "fixed",
+            width: "100%",
+            top: 0,
+            zIndex: 99999,
+            boxShadow: "0 0 20px rgba(0,0,0,0.2)"
+          }}
+        >
+          <div
+            style={{
+              float: "left"
+            }}
+          >
+            <img
+              height={40}
+              style={{
+                marginLeft: 20
+              }}
+              src="https://gw.alipayobjects.com/zos/rmsportal/CxTseSDhOivqhZeqTbyO.png"
+              alt="logo"
+            />
+          </div>
+          <h3
+            style={{
+              width: 400,
+              color: "#fff",
+              margin: 10,
+              marginLeft: 120
+            }}
+          >
+            饥荒 暴食 食谱速查表
+          </h3>
+        </div>
+        <div
+          style={{
+            padding: 24
+          }}
+        >
+          <Table
+            size="small"
+            rowKey="id"
+            bordered={true}
+            pagination={false}
+            dataSource={foodList}
+            columns={columns}
+          />
+        </div>
       </div>
     );
   }
