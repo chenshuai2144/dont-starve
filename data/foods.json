@@ -122,7 +122,7 @@
     "money": "10铜",
     "dish": "1银 7铜",
     "type": "Veggie",
-    "cooking": "oven,grill",
+    "cooking": ["oven", "grill"],
     "thing": [{ "蔬菜": 3 }]
   },
   {
@@ -645,5 +645,14 @@
     "type": "Cheese,Dessert",
     "cooking": "oven",
     "thing": [{ "浆果": 1, "面粉": 1, "羊奶": 2 }]
+  },
+  {
+    "id": 99,
+    "name": "糖浆",
+    "money": "",
+    "dish": "",
+    "type": "- NONE -",
+    "cooking": "cookpot",
+    "thing": [{ "树汁": 3 }]
   }
 ]

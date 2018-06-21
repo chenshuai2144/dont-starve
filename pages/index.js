@@ -43,6 +43,8 @@ const VAL_MONEY = [1000000, 10000, 100, 1];
 
 const valueToMap = (value) => {
   const values = {};
+  if (!value) return values;
+
   value.split(" ").forEach(val => {
     const match = val.match(/^(\d+)(.)$/);
     if (!match) {
@@ -184,6 +186,15 @@ const columns = [
     title: "炊具",
     dataIndex: "cooking",
     key: "cooking",
+    render(cooker) {
+      return (
+        <div>
+          {toArr(cooker).map(c => (
+            <Tag key={c}>{c}</Tag>
+          ))}
+        </div>
+      );
+    },
     filters: Array.from(cookerList).map(cooker => ({
       text: cooker,
       value: cooker
