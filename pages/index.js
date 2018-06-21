@@ -157,11 +157,23 @@ const columns = [
                   margin: 5
                 }}
               >
-                {Object.keys(resc).map(key => (
-                  <Tag key={key}>
-                    {key}: {resc[key]}
-                  </Tag>
-                ))}
+                {Object.keys(resc).map(key => {
+                  const count = resc[key];
+
+                  if (count < 0) {
+                    return (
+                      <Tag key={key} color="red">
+                        不能有{key}
+                      </Tag>
+                    );
+                  }
+
+                  return (
+                    <Tag key={key}>
+                      {key}: {count}
+                    </Tag>
+                  );
+                })}
               </li>
             );
           })}
