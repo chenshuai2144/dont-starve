@@ -38,14 +38,35 @@ const foodList = foods.map(item => ({
 }));
 
 const VAL_COLOR = ["#f5222d", "#ad4e00", "#1890ff", "#391085", "#030852"];
+const VAL_NAMES = ['彩', '红', '银', '铜'];
+const VAL_MONEY = [1000000, 10000, 100, 1];
+
+const valueToMap = (value) => {
+  const values = {};
+  value.split(" ").forEach(val => {
+    const match = val.match(/^(\d+)(.)$/);
+    if (!match) {
+      console.warn('价值数据不匹配:', value, '-', val);
+      return;
+    }
+
+    values[match[2]] = Number(match[1]);
+    if (!VAL_NAMES.includes(match[2])) {
+      console.warn('价值类型不匹配:', value, '-', val);
+    }
+  });
+
+  return values;
+};
 
 const renderValue = value => {
+  const values = valueToMap(value);
   return (
     <div>
-      {value.split(" ").map((c, index) => {
+      {VAL_NAMES.map((c, index) => {
         return (
           <Tag key={VAL_COLOR[index]} color={VAL_COLOR[index]}>
-            {c}
+            {values[c] || 0}{c}
           </Tag>
         );
       })}
@@ -53,10 +74,22 @@ const renderValue = value => {
   );
 };
 
+const toMoney = (value) => {
+  const values = valueToMap(value);
+  let total = 0;
+  Object.keys(values).forEach((key) => {
+    const index = VAL_NAMES.indexOf(key);
+    const count = values[key];
+    total += VAL_MONEY[index] * count;
+  });
+
+  return total;
+};
+
 const sortValue = field => {
   return (a, b) => {
-    const va = Number(a[field]);
-    const vb = Number(b[field]);
+    const va = toMoney(a[field]);
+    const vb = toMoney(b[field]);
     return va - vb;
   };
 };
