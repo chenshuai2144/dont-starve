@@ -195,7 +195,7 @@
     "dish": "1银 4铜",
     "type": "Dessert",
     "cooking": "oven",
-    "thing": [{ "浆果": "2 面粉" }]
+    "thing": [{ "浆果": 2, " 面粉": 1 }]
   },
   {
     "id": 23,
