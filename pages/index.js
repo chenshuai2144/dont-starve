@@ -1,104 +1,171 @@
 import React from "react";
-import { Table, Button, Select } from "antd";
-import data from "./data/data.json";
+import { Table, Tag, Button, Select } from "antd";
+import foods from "../data/foods.json";
+
+const toArr = list => {
+  if (Array.isArray(list)) return list;
+  return [list];
+};
+
+const typeList = new Set();
+foods.forEach(({ type }) => {
+  type.split(",").forEach(t => {
+    typeList.add(t);
+  });
+});
+
+const cookerList = new Set();
+foods.forEach(({ cooking }) => {
+  toArr(cooking).forEach(c => {
+    cookerList.add(c);
+  });
+});
+
+const recipeList = new Set();
+foods.forEach(({ thing }) => {
+  const list = toArr(thing);
+  list.forEach(recs => {
+    Object.keys(recs).forEach(r => {
+      recipeList.add(r);
+    });
+  });
+});
+
+const foodList = foods.map(item => ({
+  ...item,
+  type: item.type.split(","),
+  cookers: item.cooking
+}));
+
+const VAL_COLOR = ["#f5222d", "#ad4e00", "#1890ff", "#391085", "#030852"];
+
+const renderValue = value => {
+  return (
+    <div>
+      {value.split(" ").map((c, index) => {
+        console.log(VAL_COLOR[index]);
+        return (
+          <Tag key={VAL_COLOR[index]} color={VAL_COLOR[index]}>
+            {c}
+          </Tag>
+        );
+      })}
+    </div>
+  );
+};
+
+const sortValue = field => {
+  return (a, b) => {
+    const va = Number(a[field]);
+    const vb = Number(b[field]);
+    return va - vb;
+  };
+};
 
 const columns = [
   {
-    title: "食物(name)",
+    title: "ID",
+    dataIndex: "id",
+    key: "id"
+  },
+  {
+    title: "食物",
     dataIndex: "name",
     key: "name"
   },
   {
-    title: "钱(money)",
-    dataIndex: "money",
-    key: "money"
-  },
-  {
-    title: "用银盘子",
-    dataIndex: "dish",
-    key: "dish"
-  },
-  {
-    title: "类型（type）",
+    title: "类型",
     dataIndex: "type",
-    key: "type"
+    key: "type",
+    render: list => (
+      <div>{list.map(value => <Tag key={value}>{value}</Tag>)}</div>
+    ),
+    filters: Array.from(typeList).map(type => ({
+      text: type,
+      value: type
+    })),
+    onFilter: (value, record) => record.type.includes(value)
   },
   {
-    title: "锅（cooking）",
-    dataIndex: "cooking",
-    key: "cooking"
+    title: "价值",
+    dataIndex: "money",
+    key: "money",
+    render: renderValue,
+    sorter: sortValue("money")
   },
   {
-    title: "材料",
+    title: "银器价值",
+    dataIndex: "dish",
+    key: "dish",
+    render: renderValue,
+    sorter: sortValue("dish")
+  },
+  {
+    title: "配方",
     dataIndex: "thing",
-    key: "thing"
+    key: "thing",
+    render: recipe => {
+      const reList = toArr(recipe);
+      return (
+        <ul
+          style={{
+            listStyle: "none",
+            padding: 0,
+            margin: 0,
+            whiteSpace: "nowrap"
+          }}
+        >
+          {reList.map((resc, index) => {
+            return (
+              <li
+                key={index}
+                style={{
+                  margin: 5
+                }}
+              >
+                {Object.keys(resc).map(key => (
+                  <Tag key={key}>
+                    {key}: {resc[key]}
+                  </Tag>
+                ))}
+              </li>
+            );
+          })}
+        </ul>
+      );
+    },
+    filters: Array.from(recipeList).map(recipe => ({
+      text: recipe,
+      value: recipe
+    })),
+    onFilter: (value, record) => record.recipe[value] !== undefined
+  },
+  {
+    title: "炊具",
+    dataIndex: "cooking",
+    key: "cooking",
+    filters: Array.from(cookerList).map(cooker => ({
+      text: cooker,
+      value: cooker
+    })),
+    onFilter: (value, record) => record.cookers.indexOf(value) !== -1
   }
 ];
 
-const typeList = [
-  "Snack",
-  "Bread",
-  "Veggie",
-  "Soup",
-  "Fish",
-  "Meat",
-  "Cheese",
-  "Paste",
-  "Dessert"
-];
 class Index extends React.PureComponent {
-  state = {
-    types: []
-  };
   render() {
-    const dataSource = data.filter(item => {
-      if (!this.state.types || this.state.types.length < 1) {
-        return true;
-      }
-      const itemType = item.type.split(",");
-      let isHave = false;
-      this.state.types.forEach(type => {
-        if (!isHave) {
-          isHave = itemType.includes(type);
-        }
-      });
-      return isHave;
-    });
     return (
-      <div>
-        <div
-          style={{
-            margin: 8
-          }}
-        >
-          <Select
-            mode="multiple"
-            onChange={value =>
-              this.setState({
-                types: value
-              })
-            }
-            style={{
-              width: 200,
-              marginRight: 8
-            }}
-          >
-            {typeList.map(type => {
-              return (
-                <Select.Option key={type} value={type}>
-                  {type}
-                </Select.Option>
-              );
-            })}
-          </Select>
-          <Button>重置</Button>
-        </div>
+      <div
+        style={{
+          padding: 24
+        }}
+      >
         <Table
           size="small"
-          rowKey="name"
+          rowKey="id"
           bordered={true}
           pagination={false}
-          dataSource={dataSource}
+          dataSource={foodList}
           columns={columns}
         />
       </div>

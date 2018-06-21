@@ -5,5 +5,6 @@ dont-starve Detailed recipe
 
 ```
 yarn 
-umi dev
+yarn dev
+
 ```
