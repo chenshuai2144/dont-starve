@@ -43,7 +43,6 @@ const renderValue = value => {
   return (
     <div>
       {value.split(" ").map((c, index) => {
-        console.log(VAL_COLOR[index]);
         return (
           <Tag key={VAL_COLOR[index]} color={VAL_COLOR[index]}>
             {c}
