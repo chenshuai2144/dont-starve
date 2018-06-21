@@ -67,7 +67,11 @@ const renderValue = value => {
     <div>
       {VAL_NAMES.map((c, index) => {
         return (
-          <Tag key={VAL_COLOR[index]} color={VAL_COLOR[index]} style={{ width: 42, textAlign: 'center' }}>
+          <Tag
+            key={VAL_COLOR[index]}
+            color={VAL_COLOR[index]}
+            style={{ width: 42, textAlign: 'center', opacity: !values[c] ? 0.2 : 1 }}
+          >
             {values[c] || 0}{c}
           </Tag>
         );
