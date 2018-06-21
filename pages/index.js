@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Tag, Button, Select } from "antd";
+import { Table, Tag } from "antd";
 import foods from "../data/foods.json";
 
 const toArr = list => {
