@@ -1,6 +1,12 @@
 import React from "react";
 import { Table, Tag } from "antd";
 import foods from "../data/foods.json";
+import klei from "../data/klei.json";
+
+const kleiData = {};
+klei.forEach(item => {
+  kleiData[item.id] = item;
+});
 
 const toArr = list => {
   if (Array.isArray(list)) return list;
@@ -106,12 +112,31 @@ const columns = [
     title: "ID",
     dataIndex: "id",
     key: "id",
-    align: "right"
+    align: "right",
+    render(id, record) {
+      return record.displayId || id;
+    },
   },
   {
     title: "食物",
     dataIndex: "name",
-    key: "name"
+    key: "name",
+    render(name, record) {
+      const kitem = kleiData[record.id] || {};
+      return (
+        <div>
+          <img
+            src={kitem.image}
+            style={{
+              width: 30,
+              height: 30,
+              marginRight: 3,
+            }}
+          />
+          {name}
+        </div>
+      );
+    },
   },
   {
     title: "类型",
