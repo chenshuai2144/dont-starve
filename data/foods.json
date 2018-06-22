@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "条状面包",
-    "money": "5铜",
+    "money": "6铜",
     "dish": "1银 2铜",
     "type": "Snack,Bread",
     "cooking": "oven",
@@ -300,7 +300,7 @@
     "id": 34,
     "name": "鱼汉堡",
     "money": "2银 6铜",
-    "dish": "2银 6铜",
+    "dish": "1红 1银 5铜",
     "type": "Bread,Fish",
     "cooking": "grill",
     "thing": [{ "面粉": 2, "鱼": 1 }]
@@ -309,7 +309,7 @@
     "id": 35,
     "name": "蘑菇汉堡",
     "money": "2银 6铜",
-    "dish": "2银 6铜",
+    "dish": "1红 1银 5铜",
     "type": "Bread,Veggie",
     "cooking": "grill",
     "thing": [{ "面粉": 2, "蘑菇": 2 }]
@@ -457,7 +457,7 @@
     "name": "饺子形馅饼",
     "money": "1红 1银 4铜",
     "dish": "1彩 1银 4铜",
-    "type": "Cheese",
+    "type": "Cheese,Veggie",
     "cooking": "cookpot",
     "thing": [{ "面粉": 1, "羊奶": 1, "土豆": 1 }]
   },
@@ -624,7 +624,7 @@
     "name": "司康",
     "money": "1彩 4铜",
     "dish": "1彩 1银 4铜",
-    "type": "Dessert",
+    "type": "Dessert,Bread",
     "cooking": "grill",
     "thing": [{ "浆果": 1, "面粉": 2, "羊奶": 1 }]
   },
