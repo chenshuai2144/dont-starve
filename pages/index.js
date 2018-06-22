@@ -2,6 +2,7 @@ import React from "react";
 import { Table, Tag } from "antd";
 import foods from "../data/foods.json";
 import klei from "../data/klei.json";
+import Cooker from './Cooker';
 
 const kleiData = {};
 klei.forEach(item => {
@@ -126,6 +127,7 @@ const columns = [
       return (
         <div>
           <img
+            alt={name}
             src={kitem.image}
             style={{
               width: 30,
@@ -233,8 +235,17 @@ const columns = [
     title: "炊具",
     dataIndex: "cooking",
     key: "cooking",
-    render(cooker) {
-      return <div>{toArr(cooker).map(c => <Tag key={c}>{c}</Tag>)}</div>;
+    render(cooker, { id }) {
+      return (
+        <div>
+          {toArr(cooker).map(c => (
+            <Tag key={c}>
+              <Cooker {...kleiData[id]} cooker={c} />
+              {c}
+            </Tag>
+          ))}
+        </div>
+      );
     },
     filters: Array.from(cookerList).map(cooker => ({
       text: cooker,
