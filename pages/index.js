@@ -2,7 +2,15 @@ import React from "react";
 import { Table, Tag } from "antd";
 import foods from "../data/foods.json";
 import klei from "../data/klei.json";
+import dishData from "../data/dish_data.json";
 import Cooker from './Cooker';
+
+const COIN_IMAGE = [
+  'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin4.png',
+  'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin3.png',
+  'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin2.png',
+  'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin1.png',
+];
 
 const kleiData = {};
 klei.forEach(item => {
@@ -41,8 +49,12 @@ foods.forEach(({ thing }) => {
 const foodList = foods.map(item => ({
   ...item,
   type: item.type.split(","),
-  cookers: item.cooking
+  cookers: item.cooking,
+
+  officeData: dishData[item.id] || {},
 }));
+
+console.log('>>>', foodList);
 
 const VAL_COLOR = ["#993399", "#e2434b", "#65c0ba", "#ffb400", "#030852"];
 const VAL_NAMES = ["彩", "红", "银", "铜"];
@@ -68,7 +80,7 @@ const valueToMap = value => {
   return values;
 };
 
-const renderValue = value => {
+/* const renderValue = value => {
   const values = valueToMap(value);
   return (
     <div>
@@ -86,9 +98,47 @@ const renderValue = value => {
       })}
     </div>
   );
+}; */
+
+const renderCoin = (type) => {
+  return (_, { officeData }) => {
+    const coinList = officeData[type].slice().reverse();
+    return (
+      <div>
+        {coinList.map((val, index) => (
+          <span
+            style={{ display: 'inline-block', margin: '0 3px', opacity: !val ? 0.3 : 1 }}
+            key={COIN_IMAGE[index]}
+          >
+            {val}
+            <img
+              style={{ width: 16, height: 16, verticalAlign: 'text-top' }}
+              src={COIN_IMAGE[index]}
+            />
+          </span>
+        ))}
+      </div>
+    );
+  };
 };
 
-const toMoney = value => {
+const toMoney = (coins) => {
+  let total = 0;
+  coins.forEach((value, index) => {
+    total += value * Math.pow(100, index);
+  });
+  return total;
+};
+
+const sortCoin = (field) => {
+  return (a, b) => {
+    const va = toMoney(a.officeData[field]);
+    const vb = toMoney(b.officeData[field]);
+    return va - vb;
+  };
+};
+
+/* const toMoney = value => {
   const values = valueToMap(value);
   let total = 0;
   Object.keys(values).forEach(key => {
@@ -106,7 +156,7 @@ const sortValue = field => {
     const vb = toMoney(b[field]);
     return va - vb;
   };
-};
+}; */
 
 const columns = [
   {
@@ -155,7 +205,7 @@ const columns = [
       })),
     onFilter: (value, record) => record.type.includes(value)
   },
-  {
+  /* {
     title: "价值",
     dataIndex: "money",
     key: "money",
@@ -168,6 +218,20 @@ const columns = [
     key: "dish",
     render: renderValue,
     sorter: sortValue("dish")
+  }, */
+  {
+    title: "价值",
+    dataIndex: "money",
+    key: "money",
+    render: renderCoin('coins'),
+    sorter: sortCoin("coins")
+  },
+  {
+    title: "银器价值",
+    dataIndex: "dish",
+    key: "dish",
+    render: renderCoin('silver_coins'),
+    sorter: sortCoin("silver_coins")
   },
   {
     title: "配方",
