@@ -26,7 +26,10 @@ RECIPES.quagmire_spotspice_ground = 'images/ingredients/spotspice_ground.png';
 
 const Ingredient = ({ ingredient }) => {
   return (
-    <Tooltip title={locale[ingredient]}>
+    <Tooltip
+        title={locale[ingredient]}
+        overlayStyle={{ pointerEvents: 'none' }}
+    >
         <img
             src={`https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/${RECIPES[ingredient]}`}
             alt={locale[ingredient]}
