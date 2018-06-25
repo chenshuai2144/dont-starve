@@ -3,7 +3,9 @@ import { Table, Tag } from "antd";
 import foods from "../data/foods.json";
 import klei from "../data/klei.json";
 import dishData from "../data/dish_data.json";
+import locale from "../data/locale.json";
 import Cooker from './Cooker';
+import Ingredient from './Ingredient';
 
 const COIN_IMAGE = [
   'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin4.png',
@@ -25,7 +27,9 @@ const toArr = list => {
 const foodList = foods.map(item => ({
   ...item,
   cookers: item.cooking,
+
   type: dishData[item.id].cravings || ['--NONE--'],
+  ingredients: dishData[item.id].ingredients,
 
   officeData: dishData[item.id],
 }));
@@ -46,7 +50,7 @@ foods.forEach(({ cooking }) => {
   });
 });
 
-const recipeList = new Set();
+/* const recipeList = new Set();
 foods.forEach(({ thing }) => {
   const list = toArr(thing);
   list.forEach(recs => {
@@ -54,7 +58,16 @@ foods.forEach(({ thing }) => {
       recipeList.add(r);
     });
   });
+}); */
+
+let ingredientList = [];
+foodList.forEach(({ ingredients }) => {
+  ingredients.forEach((list) => {
+    ingredientList = ingredientList.concat(list);
+  });
 });
+const ingredients = new Set(ingredientList);
+console.log('~', ingredients);
 
 const VAL_COLOR = ["#993399", "#e2434b", "#65c0ba", "#ffb400", "#030852"];
 const VAL_NAMES = ["彩", "红", "银", "铜"];
@@ -233,7 +246,7 @@ const columns = [
     render: renderCoin('silver_coins'),
     sorter: sortCoin("silver_coins")
   },
-  {
+  /* {
     title: "配方",
     dataIndex: "thing",
     key: "thing",
@@ -294,6 +307,47 @@ const columns = [
       });
       return isHave;
     }
+  }, */
+  {
+    title: '秘方',
+    dataIndex: 'ingredients',
+    key: "ingredients",
+    render(ingredientsList) {
+      return (
+        <ul
+          style={{
+            listStyle: "none",
+            padding: 0,
+            margin: 0,
+            whiteSpace: "nowrap"
+          }}
+        >
+          {ingredientsList.map((line) => {
+            return (
+              <li key={line.join('_')}>
+                {line.map((ing, index) => (
+                  <Ingredient key={`${ing}_${index}`} ingredient={ing} />
+                ))}
+              </li>
+            );
+          })}
+        </ul>
+      );
+    },
+    filters: Array.from(ingredients)
+      .sort()
+      .map(ingredient => ({
+        text: locale[ingredient],
+        value: ingredient,
+      })),
+    onFilter: (value, record) => {
+      for (let i = 0; i < record.ingredients.length ; i += 1) {
+        if (record.ingredients[i].includes(value)) {
+          return true;
+        }
+      }
+      return false;
+    },
   },
   {
     title: "炊具",
