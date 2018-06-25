@@ -22,9 +22,19 @@ const toArr = list => {
   return [list];
 };
 
+const foodList = foods.map(item => ({
+  ...item,
+  cookers: item.cooking,
+  type: dishData[item.id].cravings || ['--NONE--'],
+
+  officeData: dishData[item.id],
+}));
+
+console.log('>>>', foodList);
+
 const typeList = new Set();
-foods.forEach(({ type }) => {
-  type.split(",").forEach(t => {
+foodList.forEach(({ type }) => {
+  type.forEach(t => {
     typeList.add(t);
   });
 });
@@ -45,16 +55,6 @@ foods.forEach(({ thing }) => {
     });
   });
 });
-
-const foodList = foods.map(item => ({
-  ...item,
-  type: item.type.split(","),
-  cookers: item.cooking,
-
-  officeData: dishData[item.id] || {},
-}));
-
-console.log('>>>', foodList);
 
 const VAL_COLOR = ["#993399", "#e2434b", "#65c0ba", "#ffb400", "#030852"];
 const VAL_NAMES = ["彩", "红", "银", "铜"];
