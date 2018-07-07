@@ -1,17 +1,17 @@
 import React from "react";
-import { Table, Tag } from "antd";
+import { Table, Input, Tag, Button } from "antd";
 import foods from "../data/foods.json";
 import klei from "../data/klei.json";
 import dishData from "../data/dish_data.json";
 import locale from "../data/locale.json";
-import Cooker from './Cooker';
-import Ingredient from './Ingredient';
+import Cooker from "./Cooker";
+import Ingredient from "./Ingredient";
 
 const COIN_IMAGE = [
-  'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin4.png',
-  'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin3.png',
-  'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin2.png',
-  'https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin1.png',
+  "https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin4.png",
+  "https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin3.png",
+  "https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin2.png",
+  "https://s3.amazonaws.com/kleiforums/GORGE/RecipeBook/images/quagmire_coin1.png"
 ];
 
 const kleiData = {};
@@ -28,13 +28,13 @@ const foodList = foods.map(item => ({
   ...item,
   cookers: item.cooking,
 
-  type: dishData[item.id].cravings || ['--NONE--'],
+  type: dishData[item.id].cravings || ["--NONE--"],
   ingredients: dishData[item.id].ingredients,
 
-  officeData: dishData[item.id],
+  officeData: dishData[item.id]
 }));
 
-console.log('>>>', foodList);
+console.log(">>>", foodList);
 
 const typeList = new Set();
 foodList.forEach(({ type }) => {
@@ -62,12 +62,12 @@ foods.forEach(({ thing }) => {
 
 let ingredientList = [];
 foodList.forEach(({ ingredients }) => {
-  ingredients.forEach((list) => {
+  ingredients.forEach(list => {
     ingredientList = ingredientList.concat(list);
   });
 });
 const ingredients = new Set(ingredientList);
-console.log('~', ingredients);
+console.log("~", ingredients);
 
 const VAL_COLOR = ["#993399", "#e2434b", "#65c0ba", "#ffb400", "#030852"];
 const VAL_NAMES = ["彩", "红", "银", "铜"];
@@ -113,19 +113,23 @@ const valueToMap = value => {
   );
 }; */
 
-const renderCoin = (type) => {
+const renderCoin = type => {
   return (_, { officeData }) => {
     const coinList = officeData[type].slice().reverse();
     return (
       <div>
         {coinList.map((val, index) => (
           <span
-            style={{ display: 'inline-block', margin: '0 3px', opacity: !val ? 0.3 : 1 }}
+            style={{
+              display: "inline-block",
+              margin: "0 3px",
+              opacity: !val ? 0.3 : 1
+            }}
             key={COIN_IMAGE[index]}
           >
             {val}
             <img
-              style={{ width: 16, height: 16, verticalAlign: 'text-top' }}
+              style={{ width: 16, height: 16, verticalAlign: "text-top" }}
               src={COIN_IMAGE[index]}
             />
           </span>
@@ -135,7 +139,7 @@ const renderCoin = (type) => {
   };
 };
 
-const toMoney = (coins) => {
+const toMoney = coins => {
   let total = 0;
   coins.forEach((value, index) => {
     total += value * Math.pow(100, index);
@@ -143,7 +147,7 @@ const toMoney = (coins) => {
   return total;
 };
 
-const sortCoin = (field) => {
+const sortCoin = field => {
   return (a, b) => {
     const va = toMoney(a.officeData[field]);
     const vb = toMoney(b.officeData[field]);
@@ -179,7 +183,7 @@ const columns = [
     align: "right",
     render(id, record) {
       return record.displayId || id;
-    },
+    }
   },
   {
     title: "食物",
@@ -195,13 +199,13 @@ const columns = [
             style={{
               width: 30,
               height: 30,
-              marginRight: 3,
+              marginRight: 3
             }}
           />
           {name}
         </div>
       );
-    },
+    }
   },
   {
     title: "类型",
@@ -236,14 +240,14 @@ const columns = [
     title: "价值",
     dataIndex: "money",
     key: "money",
-    render: renderCoin('coins'),
+    render: renderCoin("coins"),
     sorter: sortCoin("coins")
   },
   {
     title: "银器价值",
     dataIndex: "dish",
     key: "dish",
-    render: renderCoin('silver_coins'),
+    render: renderCoin("silver_coins"),
     sorter: sortCoin("silver_coins")
   },
   /* {
@@ -309,8 +313,8 @@ const columns = [
     }
   }, */
   {
-    title: '秘方',
-    dataIndex: 'ingredients',
+    title: "秘方",
+    dataIndex: "ingredients",
     key: "ingredients",
     render(ingredientsList) {
       return (
@@ -322,9 +326,9 @@ const columns = [
             whiteSpace: "nowrap"
           }}
         >
-          {ingredientsList.map((line) => {
+          {ingredientsList.map(line => {
             return (
-              <li key={line.join('_')}>
+              <li key={line.join("_")}>
                 {line.map((ing, index) => (
                   <Ingredient key={`${ing}_${index}`} ingredient={ing} />
                 ))}
@@ -338,16 +342,16 @@ const columns = [
       .sort()
       .map(ingredient => ({
         text: locale[ingredient],
-        value: ingredient,
+        value: ingredient
       })),
     onFilter: (value, record) => {
-      for (let i = 0; i < record.ingredients.length ; i += 1) {
+      for (let i = 0; i < record.ingredients.length; i += 1) {
         if (record.ingredients[i].includes(value)) {
           return true;
         }
       }
       return false;
-    },
+    }
   },
   {
     title: "炊具",
@@ -374,6 +378,22 @@ const columns = [
 ];
 
 class Index extends React.PureComponent {
+  state = {
+    foodList: foodList
+  };
+  filter = text => {
+    const list = foodList.filter((item, index) => {
+      return (
+        item.cooking.includes(text) ||
+        item.name.includes(text) ||
+        item.type.includes(text) ||
+        (index + 1 + "").includes(text)
+      );
+    });
+    this.setState({
+      foodList: list
+    });
+  };
   render() {
     return (
       <div
@@ -425,12 +445,33 @@ class Index extends React.PureComponent {
             padding: 24
           }}
         >
+          <div
+            style={{
+              padding: 8
+            }}
+          >
+            <Input.Search
+              style={{ width: 300, marginRight: 8 }}
+              onChange={e => {
+                this.filter(e.target.value);
+              }}
+            />
+            <Button
+              onClick={() => {
+                this.setState({
+                  foodList
+                });
+              }}
+            >
+              重置
+            </Button>
+          </div>
           <Table
             size="small"
             rowKey="id"
             bordered={true}
             pagination={false}
-            dataSource={foodList}
+            dataSource={this.state.foodList}
             columns={columns}
           />
         </div>
